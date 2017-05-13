@@ -12,7 +12,6 @@
         </style>
     </head>
     <body>
-        <button id="action">Resize comments box</button>
         <div id="disqus_thread"></div>
         <script>
         (function(d,w) { 
@@ -22,11 +21,9 @@
                         window.parent.postMessage({
                           sentinel: 'amp',
                           type: 'embed-size',
-                          height: document.getElementById('disqus_thread').offsetHeight
+                          height: document.getElementById('disqus_thread').offsetHeight+100
                         }, '*');  
-                        console.log(document.getElementById('disqus_thread').offsetHeight);
             }
-
             function receiveMessage(event)
             {
                 if (event.data) {
@@ -56,9 +53,6 @@
             s.setAttribute('data-timestamp', +new Date());
             (d.head || d.body).appendChild(s);
 
-            d.getElementById('action').onclick = function() {
-                updateSize();
-            }
         })(document,window);
         </script>
     </body>
